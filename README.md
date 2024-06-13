@@ -16,6 +16,9 @@ Aşağıdaki UI tasarımları verilen ekranları ConstraintLayout ve ilgili View
 - [Build a Responsive UI with ConstraintLayout](https://developer.android.com/develop/ui/views/layout/constraint-layout)
 - [Use ConstraintLayout to design your Android views](https://developer.android.com/codelabs/constraint-layout#0)
 
+## İdeal Süre
+todo
+
 ## UI Tasarım
 
 | Light Mode             | Dark Mode                                                                |

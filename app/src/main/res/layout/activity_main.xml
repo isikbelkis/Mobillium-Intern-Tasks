@@ -5,8 +5,231 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?backgroundColor"
     tools:context=".MainActivity">
 
-    <!-- TODO Design task-1 screen here -->
+    <TextView
+        android:id="@+id/cityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/hugeVerticalSpacing"
+        android:text="@string/cityNameText"
+        style="@style/largeMediumText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/todayText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/todayText"
+        style="@style/smallRegularText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cityText" />
 
+    <ImageView
+        android:id="@+id/weatherImage"
+        android:layout_width="@dimen/largeImageSize"
+        android:layout_height="@dimen/largeImageSize"
+        android:layout_marginBottom="@dimen/hugeVerticalSpacing"
+        app:layout_constraintBottom_toTopOf="@+id/temperatureText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_sunny" />
+
+    <TextView
+        android:id="@+id/temperatureText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/HugeMediumText"
+        android:text="@string/temperatureText"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/degreeMarkText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/HugeMediumText"
+        android:text="@string/degreeText"
+        app:layout_constraintBottom_toBottomOf="@+id/temperatureText"
+        app:layout_constraintStart_toEndOf="@+id/temperatureText"
+        app:layout_constraintTop_toTopOf="@+id/temperatureText" />
+
+    <TextView
+        android:id="@+id/weatherNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/mediumVerticalSpacing"
+        android:text="@string/sunnyText"
+        style="@style/mediumMediumText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temperatureText" />
+
+    <TextView
+        android:id="@+id/windText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/hugeVerticalSpacing"
+        style="@style/smallMediumText"
+        android:text="@string/windText"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/weatherNameText" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/tinyVerticalSpacing"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/windText"
+        app:layout_constraintStart_toStartOf="@+id/windText"
+        app:layout_constraintTop_toBottomOf="@+id/windText">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/smallHorizontalSpacing"
+            android:src="@drawable/ic_wind" />
+
+        <TextView
+            android:id="@+id/windSpeedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/smallRegularText"
+            android:text="@string/windSpeedText" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/tinyVerticalSpacing"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3">
+
+        <TextView
+            android:id="@+id/FirstDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/largeVerticalSpacing"
+            style="@style/smallRegularText"
+            android:text="@string/nextDayGroupFirstDateText" />
+
+        <ImageView
+            android:id="@+id/ic_sunny"
+            android:layout_width="@dimen/mediumImageSize"
+            android:layout_height="@dimen/mediumImageSize"
+            android:layout_weight="1"
+            android:src="@drawable/ic_sunny" />
+
+        <TextView
+            android:id="@+id/TemperatureRangesText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/hugeVerticalSpacing"
+            style="@style/smallMediumText"
+            android:text="@string/nextDayGroupTemperatureRangesText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/tinyVerticalSpacing"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout4">
+
+        <TextView
+            android:id="@+id/SecondDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/largeVerticalSpacing"
+            style="@style/smallRegularText"
+            android:text="@string/nextDayGroupSecondDateText" />
+
+        <ImageView
+            android:id="@+id/ic_cloudy"
+            android:layout_width="@dimen/mediumImageSize"
+            android:layout_height="@dimen/mediumImageSize"
+            android:layout_weight="1"
+            android:src="@drawable/ic_cloudy" />
+
+        <TextView
+            android:id="@+id/TemperatureRangesText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/hugeVerticalSpacing"
+            style="@style/smallMediumText"
+            android:text="@string/nextDayGroupTemperatureRangesText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/tinyVerticalSpacing"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout5">
+
+        <TextView
+            android:id="@+id/ThirdDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/largeVerticalSpacing"
+            style="@style/smallRegularText"
+            android:text="@string/nextDayGroupThirdDateText" />
+
+        <ImageView
+            android:id="@+id/ic_sunny1"
+            android:layout_width="@dimen/mediumImageSize"
+            android:layout_height="@dimen/mediumImageSize"
+            android:layout_weight="1"
+            android:src="@drawable/ic_sunny" />
+
+        <TextView
+            android:id="@+id/TemperatureRangesText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/hugeVerticalSpacing"
+            style="@style/smallMediumText"
+            android:text="@string/nextDayGroupTemperatureRangesText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/hugeVerticalSpacing">
+
+        <TextView
+            android:id="@+id/FourthDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/largeVerticalSpacing"
+            style="@style/smallRegularText"
+            android:text="@string/nextDayGroupFourthDateText" />
+
+        <ImageView
+            android:id="@+id/ic_rainy"
+            android:layout_width="@dimen/mediumImageSize"
+            android:layout_height="@dimen/mediumImageSize"
+            android:layout_weight="1"
+            android:src="@drawable/ic_rainy" />
+
+        <TextView
+            android:id="@+id/TemperatureRangesText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/hugeVerticalSpacing"
+            style="@style/smallMediumText"
+            android:text="@string/nextDayGroupTemperatureRangesText" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

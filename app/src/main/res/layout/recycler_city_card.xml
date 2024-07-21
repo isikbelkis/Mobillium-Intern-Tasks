@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/listRowCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/smallHorizontalSpacing"
+        android:layout_marginTop="@dimen/tinyVerticalSpacing"
+        android:layout_marginEnd="@dimen/smallHorizontalSpacing"
+        android:layout_marginBottom="@dimen/tinyVerticalSpacing"
+        android:background="@color/white"
+        app:cardCornerRadius="@dimen/RadiusSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/temperatureText1"
+                style="@style/HugeMediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mediumHorizontalSpacing"
+                android:text="@string/temperatureText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/degreeText1"
+                style="@style/HugeMediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/degreeText"
+                app:layout_constraintStart_toEndOf="@+id/temperatureText1"
+                app:layout_constraintTop_toTopOf="@+id/temperatureText1" />
+
+            <TextView
+                android:id="@+id/temperatureRangesText5"
+                style="@style/smallMediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mediumHorizontalSpacing"
+                android:text="@string/nextDayGroupTemperatureRangesText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/temperatureText1" />
+
+            <TextView
+                android:id="@+id/cityNameText"
+                style="@style/smallMediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/mediumHorizontalSpacing"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/cityNameText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/temperatureRangesText5" />
+
+            <ImageView
+                android:id="@+id/imageSunny"
+                android:layout_width="@dimen/largeImageSize"
+                android:layout_height="@dimen/largeImageSize"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/temperatureText1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/temperatureText1"
+                app:srcCompat="@drawable/ic_sunny" />
+
+            <TextView
+                android:id="@+id/sunnyText"
+                style="@style/smallMediumText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:text="@string/sunnyText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/imageSunny"
+                app:layout_constraintTop_toBottomOf="@+id/temperatureRangesText5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

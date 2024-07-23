@@ -1,10 +1,9 @@
-package com.mobillium.interntasks2a.ui
+package com.mobillium.interntasks2a.ui.case1
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.mobillium.interntasks2a.R
 import com.mobillium.interntasks2a.adapter.WeatherAdapter
 import com.mobillium.interntasks2a.databinding.ActivityListBinding
 import com.mobillium.interntasks2a.model.CityWeather

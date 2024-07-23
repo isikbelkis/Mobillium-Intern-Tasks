@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?backgroundColor"
-    tools:context=".ui.case1.DetailActivity">
+    tools:context=".ui.case2.DetailFragment">
 
     <ImageView
-        android:id="@+id/reflesh"
+        android:id="@+id/fragmentReflesh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/mediumVerticalSpacing"
@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/refresh" />
 
     <TextView
-        android:id="@+id/cityText"
+        android:id="@+id/fragmentCityText"
         style="@style/largeMediumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,52 +26,50 @@
         android:text="@string/cityNameText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reflesh" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentReflesh" />
 
     <TextView
-        android:id="@+id/todayText"
+        android:id="@+id/FragmentTodayText"
         style="@style/smallRegularText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/todayText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cityText" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentCityText" />
 
     <ImageView
-        android:id="@+id/weatherImage"
+        android:id="@+id/fragmentWeatherImage"
         android:layout_width="@dimen/largeImageSize"
         android:layout_height="@dimen/largeImageSize"
         android:layout_marginBottom="@dimen/hugeVerticalSpacing"
         android:src="@drawable/ic_sunny"
-        app:layout_constraintBottom_toTopOf="@+id/temperatureText"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentTemperatureText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/temperatureText"
+        android:id="@+id/fragmentTemperatureText"
         style="@style/HugeMediumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/mediumVerticalSpacing"
         android:text="@string/temperatureText"
-        app:layout_constraintBottom_toTopOf="@+id/weatherNameText"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentWeatherNameText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/degreeMarkText"
+        android:id="@+id/fragmentDegreeMarkText"
         style="@style/HugeMediumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/degreeText"
-        app:layout_constraintBottom_toBottomOf="@+id/temperatureText"
-        app:layout_constraintStart_toEndOf="@+id/temperatureText"
-        app:layout_constraintTop_toTopOf="@+id/temperatureText" />
+        app:layout_constraintStart_toEndOf="@+id/fragmentTemperatureText"
+        app:layout_constraintTop_toTopOf="@+id/fragmentTemperatureText" />
 
     <TextView
-        android:id="@+id/weatherNameText"
+        android:id="@+id/fragmentWeatherNameText"
         style="@style/mediumMediumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -79,10 +77,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/reflesh" />
+        app:layout_constraintTop_toTopOf="@+id/fragmentReflesh" />
 
     <TextView
-        android:id="@+id/windText"
+        android:id="@+id/fragmentWindText"
         style="@style/smallMediumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -90,19 +88,19 @@
         android:text="@string/windText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/weatherNameText" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentWeatherNameText" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/tinyVerticalSpacing"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/windText"
-        app:layout_constraintStart_toStartOf="@+id/windText"
-        app:layout_constraintTop_toBottomOf="@+id/windText">
+        app:layout_constraintEnd_toEndOf="@+id/fragmentWindText"
+        app:layout_constraintStart_toStartOf="@+id/fragmentWindText"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentWindText">
 
         <ImageView
-            android:id="@+id/icWind"
+            android:id="@+id/fragmentIcWind"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_wind"
@@ -111,7 +109,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/windSpeedText"
+            android:id="@+id/fragmentWindSpeedText"
             style="@style/smallRegularText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -119,7 +117,7 @@
             android:text="@string/windSpeedText"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/icWind"
+            app:layout_constraintStart_toEndOf="@id/fragmentIcWind"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -128,12 +126,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/hugeVerticalSpacing"
-        app:layout_constraintBottom_toTopOf="@+id/updateDataButton"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentUpdateDataButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/firstDateText"
+            android:id="@+id/fragmentFirstDateText"
             style="@style/smallRegularText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -144,17 +142,17 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/icSunny"
+            android:id="@+id/fragmentIcSunny"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/icCloudy"
-            app:layout_constraintEnd_toStartOf="@+id/temperatureRangesText"
-            app:layout_constraintStart_toEndOf="@+id/firstDateText"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentIcCloudy"
+            app:layout_constraintEnd_toStartOf="@+id/fragmentTemperatureRangesText"
+            app:layout_constraintStart_toEndOf="@+id/fragmentFirstDateText"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/ic_sunny" />
 
         <TextView
-            android:id="@+id/temperatureRangesText"
+            android:id="@+id/fragmentTemperatureRangesText"
             style="@style/smallMediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -165,7 +163,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/secondDateText"
+            android:id="@+id/fragmentSecondDateText"
             style="@style/smallRegularText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -173,20 +171,20 @@
             android:layout_marginTop="@dimen/mediumVerticalSpacing"
             android:text="@string/nextDayGroupSecondDateText"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/firstDateText" />
+            app:layout_constraintTop_toBottomOf="@+id/fragmentFirstDateText" />
 
         <ImageView
-            android:id="@+id/icCloudy"
+            android:id="@+id/fragmentIcCloudy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/icSunny1"
-            app:layout_constraintEnd_toStartOf="@+id/temperatureRangesText2"
-            app:layout_constraintStart_toEndOf="@+id/secondDateText"
-            app:layout_constraintTop_toBottomOf="@+id/icSunny"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentIcSunny1"
+            app:layout_constraintEnd_toStartOf="@+id/fragmentTemperatureRangesText2"
+            app:layout_constraintStart_toEndOf="@+id/fragmentSecondDateText"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentIcSunny"
             app:srcCompat="@drawable/ic_cloudy" />
 
         <TextView
-            android:id="@+id/temperatureRangesText2"
+            android:id="@+id/fragmentTemperatureRangesText2"
             style="@style/smallMediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -194,10 +192,10 @@
             android:layout_marginEnd="@dimen/largeHorizontalSpacing"
             android:text="@string/nextDayGroupTemperatureRangesText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/temperatureRangesText" />
+            app:layout_constraintTop_toBottomOf="@+id/fragmentTemperatureRangesText" />
 
         <TextView
-            android:id="@+id/thirdDateText"
+            android:id="@+id/fragmentThirdDateText"
             style="@style/smallRegularText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -205,20 +203,20 @@
             android:layout_marginTop="@dimen/mediumVerticalSpacing"
             android:text="@string/nextDayGroupThirdDateText"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/secondDateText" />
+            app:layout_constraintTop_toBottomOf="@+id/fragmentSecondDateText" />
 
         <ImageView
-            android:id="@+id/icSunny1"
+            android:id="@+id/fragmentIcSunny1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/icRainy"
-            app:layout_constraintEnd_toStartOf="@+id/temperatureRangesText3"
-            app:layout_constraintStart_toEndOf="@+id/thirdDateText"
-            app:layout_constraintTop_toBottomOf="@+id/icCloudy"
+            app:layout_constraintBottom_toTopOf="@+id/fragmentIcRainy"
+            app:layout_constraintEnd_toStartOf="@+id/fragmentTemperatureRangesText3"
+            app:layout_constraintStart_toEndOf="@+id/fragmentThirdDateText"
+            app:layout_constraintTop_toBottomOf="@+id/fragmentIcCloudy"
             app:srcCompat="@drawable/ic_sunny" />
 
         <TextView
-            android:id="@+id/temperatureRangesText3"
+            android:id="@+id/fragmentTemperatureRangesText3"
             style="@style/smallMediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -226,10 +224,10 @@
             android:layout_marginEnd="@dimen/largeHorizontalSpacing"
             android:text="@string/nextDayGroupTemperatureRangesText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/temperatureRangesText2" />
+            app:layout_constraintTop_toBottomOf="@+id/fragmentTemperatureRangesText2" />
 
         <TextView
-            android:id="@+id/fourthDateText"
+            android:id="@+id/fragmentFourthDateText"
             style="@style/smallRegularText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -237,19 +235,19 @@
             android:layout_marginTop="@dimen/mediumVerticalSpacing"
             android:text="@string/nextDayGroupFourthDateText"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/thirdDateText" />
+            app:layout_constraintTop_toBottomOf="@+id/fragmentThirdDateText" />
 
         <ImageView
-            android:id="@+id/icRainy"
+            android:id="@+id/fragmentIcRainy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/icSunny1"
-            app:layout_constraintStart_toStartOf="@+id/icSunny1"
+            app:layout_constraintEnd_toEndOf="@+id/fragmentIcSunny1"
+            app:layout_constraintStart_toStartOf="@+id/fragmentIcSunny1"
             app:srcCompat="@drawable/ic_rainy" />
 
         <TextView
-            android:id="@+id/temperatureRangesText4"
+            android:id="@+id/fragmentTemperatureRangesText4"
             style="@style/smallMediumText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -257,12 +255,12 @@
             android:layout_marginEnd="@dimen/largeHorizontalSpacing"
             android:text="@string/nextDayGroupTemperatureRangesText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/temperatureRangesText3" />
+            app:layout_constraintTop_toBottomOf="@+id/fragmentTemperatureRangesText3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/updateDataButton"
+        android:id="@+id/fragmentUpdateDataButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/mediumHorizontalSpacing"

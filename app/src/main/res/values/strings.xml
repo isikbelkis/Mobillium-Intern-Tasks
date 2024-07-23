@@ -14,4 +14,7 @@
     <string name="nextDayGroupFourthDateText">Cum, 05 Nisan</string>
     <string name="nextDayGroupTemperatureRangesText">14°-27°</string>
     <string name="updateDataText">Verileri Güncelle</string>
+    <string name="fragmentButtonText">Fragment</string>
+    <string name="activityButtonText">Activity</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

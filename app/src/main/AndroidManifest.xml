@@ -14,7 +14,7 @@
         tools:targetApi="31">
 
         <activity
-            android:name=".ui.ListActivity"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,7 +23,16 @@
         </activity>
 
         <activity
-            android:name=".ui.DetailActivity"
+            android:name=".ui.case2.FragmentMainActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.case1.ListActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".ui.case1.DetailActivity"
             android:exported="false" />
     </application>
+
 </manifest>

@@ -7,7 +7,7 @@ import com.mobillium.interntasks2a.databinding.RecyclerCityCardBinding
 import com.mobillium.interntasks2a.model.CityWeather
 
 class WeatherAdapter(
-    val CityWeatherList: MutableList<CityWeather>,
+    val CityWeatherList: List<CityWeather>,
     //Tıklama
     val onItemClickListener: (CityWeather) -> Unit
 ) : RecyclerView.Adapter<WeatherAdapter.ViewHolder>() {

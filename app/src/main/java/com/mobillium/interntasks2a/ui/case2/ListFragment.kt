@@ -46,7 +46,6 @@ class ListFragment : Fragment() {
             putParcelable("cityWeather", city)
         }
         detailFragment.arguments = bundle
-
         requireActivity().supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainerView, detailFragment)
             .addToBackStack(null)

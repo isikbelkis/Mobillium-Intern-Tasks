@@ -47,7 +47,6 @@ class NavListFragment : Fragment() {
                 NavListFragmentDirections.actionNavListFragmentToNavDetailFragment(cityWeather)
             findNavController().navigate(action)
         }
-        binding.fragmentNavRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.fragmentNavRecyclerView.adapter = adapter
     }
 }

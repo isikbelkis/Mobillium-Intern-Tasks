@@ -25,11 +25,13 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
         super.onViewCreated(view, savedInstanceState)
 
         val city = arguments?.getParcelable<CityWeather>("cityWeather")
-        city?.let {
-            binding.fragmentCityText.text = it.cityName
-            binding.fragmentTemperatureText.text = it.temperature
-            binding.fragmentWeatherNameText.text = it.weatherName
-            binding.fragmentWeatherImage.setImageResource(it.weatherImage)
+        city?.let { cityWeather ->
+            with(binding) {
+                fragmentCityText.text = cityWeather.cityName
+                fragmentTemperatureText.text = cityWeather.temperature
+                fragmentWeatherNameText.text = cityWeather.weatherName
+                fragmentWeatherImage.setImageResource(cityWeather.weatherImage)
+            }
         }
     }
 }

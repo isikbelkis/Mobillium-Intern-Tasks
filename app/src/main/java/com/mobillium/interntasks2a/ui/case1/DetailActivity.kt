@@ -12,19 +12,19 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //gelen verileri alıyoruz
         val cityWeather = intent.getParcelableExtra<CityWeather>("cityWeather")
 
-        //ui elemanlarına set ediyoruz
-        cityWeather?.let {
-            binding.cityText.text = it.cityName
-            binding.weatherImage.setImageResource(it.weatherImage)
-            binding.weatherNameText.text = it.weatherName
-            binding.temperatureText.text = it.temperature
-            binding.temperatureRangesText.text = it.temperatureMinMax
-            binding.temperatureRangesText2.text = it.temperatureMinMax
-            binding.temperatureRangesText3.text = it.temperatureMinMax
-            binding.temperatureRangesText4.text = it.temperatureMinMax
+        cityWeather?.let { weather ->
+            with(binding) {
+                cityText.text = weather.cityName
+                weatherImage.setImageResource(weather.weatherImage)
+                weatherNameText.text = weather.weatherName
+                temperatureText.text = weather.temperature
+                temperatureRangesText.text = weather.temperatureMinMax
+                temperatureRangesText2.text = weather.temperatureMinMax
+                temperatureRangesText3.text = weather.temperatureMinMax
+                temperatureRangesText4.text = weather.temperatureMinMax
+            }
         }
     }
 }

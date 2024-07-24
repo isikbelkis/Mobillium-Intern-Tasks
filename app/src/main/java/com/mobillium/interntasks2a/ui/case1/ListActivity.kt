@@ -12,22 +12,20 @@ import com.mobillium.interntasks2a.util.CityData
 class ListActivity : AppCompatActivity() {
     lateinit var binding: ActivityListBinding
     lateinit var adapter: WeatherAdapter
-    lateinit var CityWeatherList: MutableList<CityWeather>
+    lateinit var cityWeatherList: MutableList<CityWeather>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityListBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // CityWeatherList'i başlatma
-        CityWeatherList = CityData().getCity(this)
+        cityWeatherList = CityData().getCity(this)
 
-        adapter = WeatherAdapter(CityWeatherList) { CityWeather ->
+        adapter = WeatherAdapter(cityWeatherList) { CityWeather ->
             val intent = Intent(this, DetailActivity::class.java).apply {
                 putExtra("cityWeather", CityWeather)
             }
             startActivity(intent)
         }
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
     }
 }

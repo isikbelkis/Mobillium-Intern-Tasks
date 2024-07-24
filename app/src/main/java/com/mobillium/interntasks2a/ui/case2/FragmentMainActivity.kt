@@ -7,7 +7,7 @@ import com.mobillium.interntasks2a.R
 class FragmentMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_fragment_main)
+        setContentView(R.layout.fragment_main_activity)
 
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()

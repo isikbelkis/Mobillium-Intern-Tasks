@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navListFragment">
+
+    <fragment
+        android:id="@+id/navListFragment"
+        android:name="com.mobillium.interntasks2a.ui.case3.NavListFragment"
+        android:label="fragment_nav_list"
+        tools:layout="@layout/fragment_nav_list" >
+        <action
+            android:id="@+id/action_navListFragment_to_navDetailFragment"
+            app:destination="@id/navDetailFragment" />
+        <argument
+            android:name="cityWeather"
+            app:argType="com.mobillium.interntasks2a.model.CityWeather" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navDetailFragment"
+        android:name="com.mobillium.interntasks2a.ui.case3.NavDetailFragment"
+        android:label="fragment_nav_detail"
+        tools:layout="@layout/fragment_nav_detail" >
+
+        <argument
+            android:name="cityWeather"
+            app:argType="com.mobillium.interntasks2a.model.CityWeather" />
+        <action
+            android:id="@+id/action_navDetailFragment_to_navListFragment"
+            app:destination="@id/navListFragment" />
+    </fragment>
+</navigation>

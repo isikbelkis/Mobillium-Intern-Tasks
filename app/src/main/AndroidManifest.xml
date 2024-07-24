@@ -12,24 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.InternTasks2A"
         tools:targetApi="31">
-
         <activity
-            android:name=".MainActivity"
+            android:name=".ui.case3.NavFragmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.main.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ui.case2.FragmentMainActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.case1.ListActivity"
             android:exported="false" />
-
         <activity
             android:name=".ui.case1.DetailActivity"
             android:exported="false" />

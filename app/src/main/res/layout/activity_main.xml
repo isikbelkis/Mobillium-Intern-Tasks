@@ -5,7 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="?backgroundColor"
-    tools:context=".MainActivity">
+    tools:context=".ui.main.MainActivity">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/activityButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/update_data_button_background"
+        android:text="@string/activityButtonText"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/fragmentButton"
@@ -13,19 +25,22 @@
         android:layout_height="wrap_content"
         android:background="@drawable/update_data_button_background"
         android:text="@string/fragmentButtonText"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toTopOf="@+id/activityButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ActivityButton" />
+        app:layout_constraintTop_toBottomOf="@+id/navFragmentButton" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/ActivityButton"
+        android:id="@+id/navFragmentButton"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@drawable/update_data_button_background"
-        android:text="@string/activityButtonText"
-        app:layout_constraintBottom_toTopOf="@+id/fragmentButton"
+        android:text="@string/navFragmentButtonText"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/fragmentButton" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

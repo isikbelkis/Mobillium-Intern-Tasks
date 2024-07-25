@@ -9,8 +9,9 @@ import com.mobillium.interntasks2a.R
 import com.mobillium.interntasks2a.databinding.FragmentNavActivityBinding
 
 class NavFragmentActivity : AppCompatActivity() {
-    lateinit var binding: FragmentNavActivityBinding
-    lateinit var navController: NavController
+    private lateinit var binding: FragmentNavActivityBinding
+    private lateinit var navController: NavController
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentNavActivityBinding.inflate(layoutInflater)
@@ -20,6 +21,7 @@ class NavFragmentActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         navController = navHostFragment.navController
     }
+
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }

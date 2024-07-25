@@ -14,7 +14,8 @@ import com.mobillium.interntasks2a.databinding.FragmentNavDetailBinding
 import com.mobillium.interntasks2a.util.Constants
 
 class NavDetailFragment : Fragment() {
-    lateinit var binding: FragmentNavDetailBinding
+    private lateinit var binding: FragmentNavDetailBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,25 +26,30 @@ class NavDetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val args: NavDetailFragmentArgs by navArgs()
         val cityWeather = args.cityWeather
 
-        binding.fragmentNavTemperatureText.text=cityWeather.temperature
+        with(binding) {
+            fragmentNavTemperatureText.text = cityWeather.temperature
+            fragmentNavCityText.text = cityWeather.cityName
+            fragmentNavWindSpeedText.text = cityWeather.cityName
 
-        binding.fragmentNavReflesh.setOnClickListener {
-            val newTemperature = (Constants.MIN_TEMPERATURE..Constants.MAX_TEMPERATURE).random()
-            binding.fragmentNavTemperatureText.text = newTemperature.toString()
-        }
-
-        binding.fragmentNavUpdateDataButton.setOnClickListener {
-            val newTemperature = binding.fragmentNavTemperatureText.text.toString().toInt()
-
-            val resultBundle = Bundle().apply {
-                putInt("newTemperature", newTemperature)
-                putString(Constants.CITY_ID, cityWeather.id.toString())
+            fragmentNavReflesh.setOnClickListener {
+                val newTemperature = (Constants.MIN_TEMPERATURE..Constants.MAX_TEMPERATURE).random()
+                fragmentNavTemperatureText.text = newTemperature.toString()
             }
-            setFragmentResult(Constants.REQUEST_KEY, resultBundle)
-            findNavController().popBackStack()
+
+            fragmentNavUpdateDataButton.setOnClickListener {
+                val newTemperature = fragmentNavTemperatureText.text.toString().toInt()
+
+                val resultBundle = Bundle().apply {
+                    putInt(Constants.NEW_TEMPERATURE, newTemperature)
+                    putString(Constants.CITY_ID, cityWeather.id.toString())
+                }
+                setFragmentResult(Constants.REQUEST_KEY, resultBundle)
+                findNavController().popBackStack()
+            }
         }
     }
 }

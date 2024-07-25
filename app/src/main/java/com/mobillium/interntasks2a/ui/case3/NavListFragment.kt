@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobillium.interntasks2a.adapter.WeatherAdapter
 import com.mobillium.interntasks2a.databinding.FragmentNavListBinding
 import com.mobillium.interntasks2a.util.CityData
@@ -20,7 +19,8 @@ class NavListFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
+
         binding = FragmentNavListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -31,17 +31,19 @@ class NavListFragment : Fragment() {
         setupRecyclerView()
 
         setFragmentResultListener(Constants.REQUEST_KEY) { key, bundle ->
-            val newTemperature = bundle.getInt("newTemperature")
+            val newTemperature = bundle.getInt(Constants.NEW_TEMPERATURE)
             val cityId = bundle.getString(Constants.CITY_ID)?.toInt()
+
             cityId?.let {
-                (adapter as WeatherAdapter).updateCityTemperature(it,newTemperature)
+                adapter.updateCityTemperature(it, newTemperature)
             }
         }
     }
 
     private fun setupRecyclerView() {
         val cityData = CityData()
-        val cities = cityData.getCity(requireContext())
+        val cities = cityData.getCity()
+
         adapter = WeatherAdapter(cities) { cityWeather ->
             val action =
                 NavListFragmentDirections.actionNavListFragmentToNavDetailFragment(cityWeather)

@@ -4,15 +4,17 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.mobillium.interntasks2a.databinding.ActivityDetailBinding
 import com.mobillium.interntasks2a.model.CityWeather
+import com.mobillium.interntasks2a.util.Constants
 
 class DetailActivity : AppCompatActivity() {
-    lateinit var binding: ActivityDetailBinding
+
+    private lateinit var binding: ActivityDetailBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val cityWeather = intent.getParcelableExtra<CityWeather>("cityWeather")
+        val cityWeather = intent.getParcelableExtra<CityWeather>(Constants.CITY_WEATHER)
 
         cityWeather?.let { weather ->
             with(binding) {
@@ -20,10 +22,6 @@ class DetailActivity : AppCompatActivity() {
                 weatherImage.setImageResource(weather.weatherImage)
                 weatherNameText.text = weather.weatherName
                 temperatureText.text = weather.temperature
-                temperatureRangesText.text = weather.temperatureMinMax
-                temperatureRangesText2.text = weather.temperatureMinMax
-                temperatureRangesText3.text = weather.temperatureMinMax
-                temperatureRangesText4.text = weather.temperatureMinMax
             }
         }
     }

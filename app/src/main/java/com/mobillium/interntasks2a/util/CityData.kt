@@ -1,11 +1,10 @@
 package com.mobillium.interntasks2a.util
 
-import android.content.Context
 import com.mobillium.interntasks2a.R
 import com.mobillium.interntasks2a.model.CityWeather
 
 class CityData {
-    fun getCity(context: Context): MutableList<CityWeather> {
+    fun getCity(): MutableList<CityWeather> {
         return mutableListOf(
             CityWeather(
                 id = 1,
@@ -18,7 +17,7 @@ class CityData {
             CityWeather(
                 id = 2,
                 cityName = "Ankara",
-                temperature = "26",
+                temperature = "23",
                 temperatureMinMax = "14°-27°",
                 weatherName = "Güneşli",
                 weatherImage = R.drawable.ic_sunny
@@ -26,7 +25,7 @@ class CityData {
             CityWeather(
                 id = 3,
                 cityName = "Erzurum",
-                temperature = "26",
+                temperature = "17",
                 temperatureMinMax = "14°-27°",
                 weatherName = "Güneşli",
                 weatherImage = R.drawable.ic_sunny
@@ -34,7 +33,7 @@ class CityData {
             CityWeather(
                 id = 4,
                 cityName = "Sakarya",
-                temperature = "26",
+                temperature = "25",
                 temperatureMinMax = "14°-27°",
                 weatherName = "Güneşli",
                 weatherImage = R.drawable.ic_sunny

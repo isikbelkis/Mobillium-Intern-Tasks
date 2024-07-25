@@ -5,20 +5,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.fragment.app.setFragmentResultListener
 import com.mobillium.interntasks2a.R
 import com.mobillium.interntasks2a.adapter.WeatherAdapter
 import com.mobillium.interntasks2a.databinding.FragmentListBinding
 import com.mobillium.interntasks2a.model.CityWeather
 import com.mobillium.interntasks2a.util.CityData
+import com.mobillium.interntasks2a.util.Constants
 
 class ListFragment : Fragment() {
-    lateinit var binding: FragmentListBinding
+    private lateinit var binding: FragmentListBinding
     private lateinit var adapter: WeatherAdapter
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentListBinding.inflate(inflater, container, false)
@@ -28,15 +28,23 @@ class ListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val cities = CityData().getCity(requireContext())
+        val cities = CityData().getCity()
         setupRecyclerView(cities)
+
+        setFragmentResultListener(Constants.REQUEST_KEY) { _, bundle ->
+            val newTemperature = bundle.getInt(Constants.NEW_TEMPERATURE)
+            val cityId = bundle.getString(Constants.CITY_ID)?.toInt()
+
+            cityId?.let {
+                adapter.updateCityTemperature(it, newTemperature)
+            }
+        }
     }
 
     private fun setupRecyclerView(cities: List<CityWeather>) {
         adapter = WeatherAdapter(cities) { city ->
             navigateToDetailFragment(city)
         }
-        binding.fragmentRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.fragmentRecyclerView.adapter = adapter
     }
 

@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
-import com.example.interntasks3.databinding.FragmentCounterBinding
+import com.example.interntasks3.databinding .FragmentCounterBinding
 import com.example.interntasks3.viewmodel.CounterViewModel
 
 class CounterFragment : Fragment() {
@@ -20,7 +20,7 @@ class CounterFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentCounterBinding.inflate(inflater, container, false)
+        binding = FragmentCounterBinding.inflate(inflater,container,false)
         return binding.root
     }
 

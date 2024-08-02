@@ -1,175 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/guess_background"
+    tools:context=".view.GuessGameFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <TextView
+        android:id="@+id/charTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen18"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dimen32"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen24"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/guess_background"
-        tools:context=".view.GuessGameFragment">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/gridlayout_background"
+        android:columnCount="3"
+        android:padding="@dimen/dimen16"
+        android:rowCount="4"
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <TextView
-            android:id="@+id/charTextView"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button1"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:textSize="@dimen/dimen18"
-            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen16"
+            android:layout_marginEnd="@dimen/dimen8"
+            android:background="@drawable/guess_button_background"
+            android:text="@string/button_one_text" />
 
-        <TextView
-            android:id="@+id/resultTextView"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button2"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dimen32"
-            android:textColor="@color/white"
-            android:textSize="@dimen/dimen24"
-            app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen16"
+            android:layout_marginEnd="@dimen/dimen8"
+            android:background="@drawable/guess_button_background2"
+            android:text="@string/button_two_text" />
 
-        <GridLayout
-            android:id="@+id/gridLayout"
-            android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button3"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/gridlayout_background"
-            android:columnCount="3"
-            android:padding="@dimen/dimen16"
-            android:rowCount="4"
-            app:layout_constraintBottom_toBottomOf="parent">
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen16"
+            android:background="@drawable/guess_button_background3"
+            android:text="@string/button_three_text" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button1"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen16"
-                android:layout_marginEnd="@dimen/dimen8"
-                android:background="@drawable/guess_button_background"
-                android:text="@string/button_one_text" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button4"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen8"
+            android:layout_marginEnd="@dimen/dimen8"
+            android:background="@drawable/guess_button_background"
+            android:text="@string/button_four_text" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button2"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen16"
-                android:layout_marginEnd="@dimen/dimen8"
-                android:background="@drawable/guess_button_background2"
-                android:text="@string/button_two_text" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button5"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen8"
+            android:layout_marginEnd="@dimen/dimen8"
+            android:background="@drawable/guess_button_background2"
+            android:text="@string/button_five_text" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button3"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen16"
-                android:background="@drawable/guess_button_background3"
-                android:text="@string/button_three_text" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button6"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen8"
+            android:background="@drawable/guess_button_background3"
+            android:text="@string/button_six_text" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button4"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen8"
-                android:layout_marginEnd="@dimen/dimen8"
-                android:background="@drawable/guess_button_background"
-                android:text="@string/button_four_text" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button7"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen8"
+            android:layout_marginEnd="@dimen/dimen8"
+            android:background="@drawable/guess_button_background"
+            android:text="@string/button_seven_text" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button5"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen8"
-                android:layout_marginEnd="@dimen/dimen8"
-                android:background="@drawable/guess_button_background2"
-                android:text="@string/button_five_text" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button8"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen8"
+            android:layout_marginEnd="@dimen/dimen8"
+            android:background="@drawable/guess_button_background2"
+            android:text="@string/button_eight_text" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button6"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen8"
-                android:background="@drawable/guess_button_background3"
-                android:text="@string/button_six_text" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button9"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen8"
+            android:background="@drawable/guess_button_background3"
+            android:text="@string/button_nine_text" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button7"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen8"
-                android:layout_marginEnd="@dimen/dimen8"
-                android:background="@drawable/guess_button_background"
-                android:text="@string/button_seven_text" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonClear"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen8"
+            android:layout_marginEnd="@dimen/dimen8"
+            android:background="@drawable/guess_button_background"
+            android:text="@string/button_clear_text" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button8"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen8"
-                android:layout_marginEnd="@dimen/dimen8"
-                android:background="@drawable/guess_button_background2"
-                android:text="@string/button_eight_text" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button0"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen8"
+            android:layout_marginEnd="@dimen/dimen8"
+            android:background="@drawable/guess_button_background2"
+            android:text="@string/button_zero_text" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button9"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen8"
-                android:background="@drawable/guess_button_background3"
-                android:text="@string/button_nine_text" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonClear"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen8"
-                android:layout_marginEnd="@dimen/dimen8"
-                android:background="@drawable/guess_button_background"
-                android:text="@string/button_clear_text" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/button0"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen8"
-                android:layout_marginEnd="@dimen/dimen8"
-                android:background="@drawable/guess_button_background2"
-                android:text="@string/button_zero_text" />
-
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/buttonGuess"
-                style="@style/buttonTextStyle"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_marginTop="@dimen/dimen8"
-                android:layout_marginBottom="@dimen/dimen16"
-                android:background="@drawable/guess_button_background3"
-                android:text="@string/button_guess_text" />
-        </GridLayout>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</layout>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/buttonGuess"
+            style="@style/buttonTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_marginTop="@dimen/dimen8"
+            android:layout_marginBottom="@dimen/dimen16"
+            android:background="@drawable/guess_button_background3"
+            android:text="@string/button_guess_text" />
+    </GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

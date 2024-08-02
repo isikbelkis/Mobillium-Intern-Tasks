@@ -2,4 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="textColor">#686464</color>
+    <color name="buttonRenk">#4C2493</color>
+    <color name="guessButtonRenk4">#2C1459</color>
+    <color name="guessButtonRenk3">#4E2B8C</color>
+    <color name="guessButtonRenk">#20228F</color>
+    <color name="guessButtonRenk2">#381478</color>
 </resources>

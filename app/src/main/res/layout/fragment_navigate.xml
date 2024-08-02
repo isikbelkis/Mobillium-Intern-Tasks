@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/dimen32"
+    android:layout_marginEnd="@dimen/dimen32"
+    tools:context=".view.NavigateFragment">
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonCounterFragment"
+        style="@style/buttonTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:background="@drawable/guess_button_background3"
+        android:text="@string/navigate_counter_button_text"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGuessFragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonGuessFragment"
+        style="@style/buttonTextStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:background="@drawable/guess_button_background3"
+        android:text="@string/number_guess_game"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonCounterFragment" />
+</androidx.constraintlayout.widget.ConstraintLayout>

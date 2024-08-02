@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:angle="45"
+                android:endColor="@color/black"
+                android:centerColor="@color/guessButtonRenk2"
+                android:startColor="@color/guessButtonRenk3" />
+            <corners android:radius="@dimen/dimen8"/>
+        </shape>
+    </item>
+</selector>

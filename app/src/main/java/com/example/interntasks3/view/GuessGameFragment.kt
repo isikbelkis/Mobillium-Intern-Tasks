@@ -5,10 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import com.example.interntasks3.databinding.FragmentGuessGameBinding
 import com.example.interntasks3.viewmodel.GuessGameViewModel
@@ -31,38 +30,56 @@ class GuessGameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.randomCharLiveData.observe(viewLifecycleOwner, Observer { char ->
-            binding.charTextView.text = char.toString()
-        })
+        buttonId()
 
-        viewModel.resultLiveData.observe(viewLifecycleOwner, Observer { result ->
-            binding.resultTextView.text = result
-        })
+        with(binding) {
+            viewModel.randomCharLiveData.observe(viewLifecycleOwner) { char ->
+                charTextView.text = char.toString()
+            }
 
-        for (i in 0..9) {
-            val buttonId = resources.getIdentifier("button$i", "id", requireContext().packageName)
-            val button = view.findViewById<Button>(buttonId)
-            button?.setOnClickListener {
-                viewModel.updateGuessedNumber(i)
-                binding.resultTextView.text = i.toString()
+            viewModel.resultLiveData.observe(viewLifecycleOwner) { result ->
+                resultTextView.text = result
+            }
+
+            buttonGuess.setOnClickListener {
+                viewModel.checkGuess()
+            }
+
+            charTextView.setOnClickListener {
+                sharedViewModel.hiddenNumbers(
+                    viewModel.randomNumberLiveData.value ?: return@setOnClickListener
+                )
+                val action = GuessGameFragmentDirections.actionGuessGameFragmentToDetailFragment()
+                findNavController().navigate(action)
+            }
+
+            buttonClear.setOnClickListener {
+                viewModel.resetGame()
+                binding.resultTextView.text = " "
             }
         }
+    }
 
-        binding.buttonGuess.setOnClickListener {
-            viewModel.checkGuess()
-        }
+    private fun buttonId() = with(binding) {
+        val numberButtons = arrayOf(
+            button1,
+            button2,
+            button3,
+            button4,
+            button5,
+            button6,
+            button7,
+            button8,
+            button9,
+            button0
+        )
+        for (numberButton in numberButtons) {
+            numberButton.setOnClickListener {
+                val buttonText = numberButton.text.toString()
+                resultTextView.text = buttonText
 
-        binding.charTextView.setOnClickListener {
-            sharedViewModel.HiddenNumber(
-                viewModel.randomNumberLiveData.value ?: return@setOnClickListener
-            )
-            val action = GuessGameFragmentDirections.actionGuessGameFragmentToDetailFragment()
-            findNavController().navigate(action)
-        }
-
-        binding.buttonClear.setOnClickListener {
-            viewModel.resetGame()
-            binding.resultTextView.text = ""
+                viewModel.updateGuessedNumber(buttonText)
+            }
         }
     }
 }

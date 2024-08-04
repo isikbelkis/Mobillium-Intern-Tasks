@@ -26,8 +26,8 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedViewModel.hiddenNumberLiveData.observe(viewLifecycleOwner, Observer { number ->
+        sharedViewModel.hiddenNumberLiveData.observe(viewLifecycleOwner) { number ->
             binding.hiddenNumberTextView.text = number.toString()
-        })
+        }
     }
 }

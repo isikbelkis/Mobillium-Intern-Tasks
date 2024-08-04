@@ -7,9 +7,7 @@ import androidx.lifecycle.ViewModel
 
 class GuessGameViewModel : ViewModel() {
 
-    private val randomNumber = MutableLiveData<Int>().apply {
-        value = (0..9).random()
-    }
+    private val randomNumber = MutableLiveData<Int>()
     val randomNumberLiveData: LiveData<Int>
         get() = randomNumber
 
@@ -17,34 +15,40 @@ class GuessGameViewModel : ViewModel() {
     val resultLiveData: LiveData<String>
         get() = result
 
-    private val randomChar = MediatorLiveData<String>()
-    val randomCharLiveData: LiveData<String>
+    private val randomChar = MediatorLiveData<Char>()
+    val randomCharLiveData: LiveData<Char>
         get() = randomChar
 
     var guessedNumber: Int? = null
 
     init {
-        randomChar.addSource(randomNumber) { number ->
-            randomChar.value = (number + 'A'.code).toChar().toString()
-        }
+        startGame()
     }
 
-    fun updateGuessedNumber(number: Int) {
-        guessedNumber = number
+    fun startGame() {
+        randomNumber.value = (0..9).random()
+        randomChar.value = ('A'..'Z').random()
+    }
+
+    fun updateGuessedNumber(number: String) {
+        guessedNumber = number.toInt()
     }
 
     fun checkGuess() {
         val actualNumber = randomNumber.value
         if (guessedNumber == actualNumber) {
+
             result.value = "Kazandınız"
+
         } else {
+
             result.value = "Tekrar deneyiniz"
         }
     }
 
     fun resetGame() {
-        randomNumber.value = (0..9).random()
         guessedNumber = null
-        result.value = ""
+        randomChar.value = randomNumber.value.toString().first()
+        startGame()
     }
 }

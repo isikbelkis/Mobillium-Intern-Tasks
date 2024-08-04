@@ -10,7 +10,7 @@ class SharedViewModel : ViewModel() {
     val hiddenNumberLiveData: LiveData<Int>
         get() = hiddenNumber
 
-    fun HiddenNumber(number: Int) {
+    fun hiddenNumbers(number: Int) {
         hiddenNumber.value = number
     }
 }

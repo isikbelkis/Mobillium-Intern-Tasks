@@ -4,10 +4,12 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+
     <style name="buttonTextStyle">
         <item name="android:textSize">@dimen/dimen18</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/white</item>
     </style>
+
     <style name="Theme.InternTasks3" parent="Base.Theme.InternTasks3" />
 </resources>

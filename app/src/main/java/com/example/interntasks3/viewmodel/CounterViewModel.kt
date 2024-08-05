@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class CounterViewModel : ViewModel() {
 
     private val count = MutableLiveData(0)
-    val count1: LiveData<Int> get() = count
+    val countLiveData: LiveData<Int> get() = count
 
     fun incrementCount() {
         count.value = (count.value ?: 0) + 1

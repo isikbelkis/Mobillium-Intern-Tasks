@@ -14,7 +14,7 @@ class CounterFragment : Fragment() {
     private lateinit var binding: FragmentCounterBinding
     private val viewModel: CounterViewModel by viewModels()
     private var uiCounter = 0
-    private var useViewModelCounter = true
+    private var useViewModelCounter = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,13 +30,13 @@ class CounterFragment : Fragment() {
         updateCounterTextView()
 
         with(binding) {
-            viewModel.count1.observe(viewLifecycleOwner) { count ->
+            viewModel.countLiveData.observe(viewLifecycleOwner) { count ->
                 if (useViewModelCounter) {
                     counterTextView.text = count.toString()
                 }
             }
 
-            switch1.setOnCheckedChangeListener { _, isChecked ->
+            viewModelSwitch.setOnCheckedChangeListener { _, isChecked ->
                 useViewModelCounter = isChecked
                 updateCounterTextView()
             }
@@ -54,7 +54,7 @@ class CounterFragment : Fragment() {
 
     private fun updateCounterTextView() {
         if (useViewModelCounter) {
-            binding.counterTextView.text = viewModel.count1.value?.toString() ?: "0"
+            binding.counterTextView.text = viewModel.countLiveData.value?.toString() ?: "0"
         } else {
             binding.counterTextView.text = uiCounter.toString()
         }

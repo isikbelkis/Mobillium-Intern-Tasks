@@ -1,9 +1,9 @@
 package com.example.interntasks3.viewmodel
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.interntasks3.R
 
 class GuessGameViewModel : ViewModel() {
 
@@ -15,17 +15,21 @@ class GuessGameViewModel : ViewModel() {
     val resultLiveData: LiveData<String>
         get() = result
 
-    private val randomChar = MediatorLiveData<Char>()
+    private val randomChar = MutableLiveData<Char>()
     val randomCharLiveData: LiveData<Char>
         get() = randomChar
 
-    var guessedNumber: Int? = null
+    private val resultMessage=MutableLiveData<Int>()
+    val resultMessageLiveData: LiveData<Int>
+        get() = resultMessage
+
+    private var guessedNumber: Int? = null
 
     init {
         startGame()
     }
 
-    fun startGame() {
+    private fun startGame() {
         randomNumber.value = (0..9).random()
         randomChar.value = ('A'..'Z').random()
     }
@@ -37,18 +41,13 @@ class GuessGameViewModel : ViewModel() {
     fun checkGuess() {
         val actualNumber = randomNumber.value
         if (guessedNumber == actualNumber) {
-
-            result.value = "Kazandınız"
-
+            resultMessage.postValue((R.string.result_success))
         } else {
-
-            result.value = "Tekrar deneyiniz"
+            resultMessage.postValue(R.string.result_fail)
         }
     }
 
     fun resetGame() {
-        guessedNumber = null
-        randomChar.value = randomNumber.value.toString().first()
         startGame()
     }
 }

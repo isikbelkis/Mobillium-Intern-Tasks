@@ -3,7 +3,7 @@
     <item>
         <shape android:shape="rectangle">
             <solid android:color="@color/buttonRenk" />
-            <corners android:radius="@dimen/dimen4"/>
+            <corners android:radius="@dimen/dimen4" />
         </shape>
     </item>
 </selector>

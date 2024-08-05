@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-<item>
-    <shape android:shape="rectangle">
-        <gradient
-            android:angle="45"
-            android:endColor="@color/guessButtonRenk3"
-            android:centerColor="@color/guessButtonRenk2"
-            android:startColor="@color/black" />
-        <corners android:radius="@dimen/dimen8"/>
-    </shape>
-</item>
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:angle="45" android:centerColor="@color/guessButtonRenk2" android:endColor="@color/guessButtonRenk3" android:startColor="@color/black" />
+            <corners android:radius="@dimen/dimen8" />
+        </shape>
+    </item>
 </selector>

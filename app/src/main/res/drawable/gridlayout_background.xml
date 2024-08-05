@@ -2,26 +2,11 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
-            <gradient
-                android:angle="45"
-                android:endColor="@color/black"
-                android:centerColor="@color/guessButtonRenk2"
-                android:startColor="@color/black" />
-            <corners android:radius="@dimen/dimen8"/>
-            <padding
-                android:left="0dp"
-                android:right="0dp"
-                android:top="0dp"
-                android:bottom="0dp"/>
+            <gradient android:angle="45" android:centerColor="@color/guessButtonRenk2" android:endColor="@color/black" android:startColor="@color/black" />
+            <corners android:radius="@dimen/dimen8" />
 
-            <gradient
-                android:startColor="@color/black"
-                android:endColor="@android:color/transparent"
-                />
-            <gradient
-                android:startColor="@color/black"
-                android:centerColor="@android:color/transparent"
-                android:endColor="@color/guessButtonRenk4"/>
+            <gradient android:endColor="@android:color/transparent" android:startColor="@color/black" />
+            <gradient android:centerColor="@android:color/transparent" android:endColor="@color/guessButtonRenk4" android:startColor="@color/black" />
         </shape>
     </item>
 

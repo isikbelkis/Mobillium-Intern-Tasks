@@ -55,10 +55,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.2")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.2")
 
-    // OkHttp
-    implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
-    implementation ("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.11")
-
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")

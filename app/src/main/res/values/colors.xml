@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="main_color">#102428</color>
+    <color name="turuncu">#057B93</color>
+    <color name="koyu_mavi">#142E33</color>
 </resources>

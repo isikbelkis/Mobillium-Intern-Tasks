@@ -5,5 +5,10 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
 
+    <style name="titleBoldText">
+        <item name="android:textSize">@dimen/dimen40</item>
+        <item name="font">@font/roboto_bold</item>
+    </style>
+
     <style name="Theme.MoviesAppTask4A" parent="Base.Theme.MoviesAppTask4A" />
 </resources>

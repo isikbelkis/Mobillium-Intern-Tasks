@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">MoviesAppTask4A</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="summaryTitleText">Summary</string>
+    <string name="summaryTitleTextActors">Actors</string>
+    <string name="editText">Search for movies</string>
+    <string name="popularText">Best of Movies</string>
+    <string name="topRatedText">Top Rated Movies</string>
+    <string name="upcomingText">Upcoming Movies</string>
+    <string name="favoriteText">Favorite</string>
+    <string name="profileText">Profile</string>
+    <string name="nullMessage">There is any movie :(</string>
+    <string name="errorMessage">An unknown error occurred</string>
 </resources>

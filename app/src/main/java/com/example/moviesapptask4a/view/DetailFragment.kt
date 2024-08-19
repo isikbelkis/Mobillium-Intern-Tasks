@@ -11,9 +11,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.moviesapptask4a.R
 import com.example.moviesapptask4a.adapter.ActorsAdapter
-import com.example.moviesapptask4a.adapter.MovieAdapter
 import com.example.moviesapptask4a.databinding.FragmentDetailBinding
-import com.example.moviesapptask4a.util.loadImage
+import com.example.moviesapptask4a.util.loadCircleImage
 import com.example.moviesapptask4a.viewmodel.DetailViewModel
 
 class DetailFragment : Fragment() {
@@ -35,30 +34,30 @@ class DetailFragment : Fragment() {
     }
 
     private fun observe() {
-        with(binding){
-            viewModel.errorMessage.observe(viewLifecycleOwner){error->
-                errorDetailTextView.text=error
-                errorDetailTextView.isVisible=true
+        with(binding) {
+            viewModel.errorMessage.observe(viewLifecycleOwner) { error ->
+                errorDetailTextView.text = error
+                errorDetailTextView.isVisible = true
             }
 
-            viewModel.isLoading.observe(viewLifecycleOwner){loading->
-                progressBarDetail.isVisible=loading
+            viewModel.isLoading.observe(viewLifecycleOwner) { loading ->
+                progressBarDetail.isVisible = loading
             }
 
-            viewModel.movieResponse.observe(viewLifecycleOwner){movie->
-                movie.backdropPath?.let { detailImage.loadImage(it) }
-                summaryTextView.text=movie.overview
-                filmTitleText.text=movie.title
-                detailVoteTextView.text=movie.voteAverage.toString()
+            viewModel.movieResponse.observe(viewLifecycleOwner) { movie ->
+                movie.backdropPath?.let { detailImage.loadCircleImage(it) }
+                summaryTextView.text = movie.overview
+                filmTitleText.text = movie.title
+                detailVoteTextView.text = movie.voteAverage.toString()
 
             }
 
-            viewModel.actorsList.observe(viewLifecycleOwner){actorList->
-                if (actorList.isNullOrEmpty()){
-                    errorDetailTextView.text= R.string.nullMessage.toString()
-                    errorDetailTextView.isVisible=true
-                } else{
-                    actorsAdapter= ActorsAdapter(actorList)
+            viewModel.actorsList.observe(viewLifecycleOwner) { actorList ->
+                if (actorList.isNullOrEmpty()) {
+                    errorDetailTextView.text = getString(R.string.nullMessage)
+                    errorDetailTextView.isVisible = true
+                } else {
+                    actorsAdapter = ActorsAdapter(actorList)
                 }
                 imagesRecycler.adapter = actorsAdapter
                 imagesRecycler.layoutManager =

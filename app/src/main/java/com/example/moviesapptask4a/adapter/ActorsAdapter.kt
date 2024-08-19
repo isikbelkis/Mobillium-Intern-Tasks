@@ -5,11 +5,19 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesapptask4a.databinding.ActorsRecyclerviewBinding
 import com.example.moviesapptask4a.model.Cast
-import com.example.moviesapptask4a.util.loadCircleImage
+import com.example.moviesapptask4a.util.loadImage
 
 class ActorsAdapter(private val actorsList: List<Cast?>) :
     RecyclerView.Adapter<ActorsAdapter.ViewHolder>() {
-    class ViewHolder(val binding: ActorsRecyclerviewBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(private val binding: ActorsRecyclerviewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(actor: Cast) {
+            binding.actorsNameText.text = actor.name
+            actor.profilePath?.let { path ->
+                binding.imageActors.loadImage(path)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -26,13 +34,6 @@ class ActorsAdapter(private val actorsList: List<Cast?>) :
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val actor = actorsList[position]
-
-        actor?.let {
-            holder.binding.actorsNameText.text = it.name
-            it.profilePath?.let { path ->
-                holder.binding.imageActors.loadCircleImage(path)
-            }
-        }
+        holder.bind(actorsList[position]!!)
     }
 }

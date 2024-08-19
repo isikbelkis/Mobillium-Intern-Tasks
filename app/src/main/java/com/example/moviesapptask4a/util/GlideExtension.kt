@@ -16,9 +16,11 @@ fun ImageView.loadCircleImage(path: String) {
         .apply(requestOptions)
         .into(this)
 }
+
 fun ImageView.loadImage(path: String) {
     val requestOptions = RequestOptions()
         .error(R.drawable.error)
+        .circleCrop()
     Glide.with(this.context)
         .load(Constans.BASE_IMAGE_URL+path)
         .apply(requestOptions)

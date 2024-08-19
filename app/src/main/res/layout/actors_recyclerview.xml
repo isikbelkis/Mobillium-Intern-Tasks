@@ -22,7 +22,7 @@
         android:lines="2"
         android:maxLines="2"
         android:textColor="@color/white"
-        android:textSize="@dimen/dimen16"
+        android:textSize="@dimen/dimen16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/imageActors"
         app:layout_constraintTop_toBottomOf="@+id/imageActors" />

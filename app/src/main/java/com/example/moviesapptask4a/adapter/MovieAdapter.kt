@@ -3,17 +3,53 @@ package com.example.moviesapptask4a.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.moviesapptask4a.R
 import com.example.moviesapptask4a.databinding.MovieRecyclerviewBinding
 import com.example.moviesapptask4a.model.MoviesItem
 import com.example.moviesapptask4a.util.loadCircleImage
 
 
-interface MovieClickListener{
-    fun onMovieClicted(movieId:Int)
-}
-class MovieAdapter(private var movieList: List<MoviesItem?> , private val movieClickListener: MovieClickListener) :
-    RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
-    class ViewHolder(val binding: MovieRecyclerviewBinding) : RecyclerView.ViewHolder(binding.root)
+class MovieAdapter(
+    private var movieList: List<MoviesItem?>,
+    private val onMovieClick: (MoviesItem) -> Unit,
+    private val onFavoriteClick: (MoviesItem) -> Unit,
+    private val isFavorite: (MoviesItem) -> Boolean
+) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+
+    class ViewHolder(private val binding: MovieRecyclerviewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+
+        fun bind(
+            movie: MoviesItem,
+            onMovieClick: (MoviesItem) -> Unit,
+            onFavoriteClick: (MoviesItem) -> Unit,
+            isFavorite: (MoviesItem) -> Boolean
+        ) {
+            binding.titleTxt.text = movie.title
+            movie.posterPath?.let { path ->
+                binding.imagePoster.loadCircleImage(path)
+            }
+
+            binding.root.setOnClickListener {
+                onMovieClick(movie)
+            }
+
+            binding.imageFavorite.setOnClickListener {
+                onFavoriteClick(movie)
+                toggleFavoriteIcon(movie, isFavorite)
+            }
+            toggleFavoriteIcon(movie, isFavorite)
+        }
+
+        private fun toggleFavoriteIcon(movie: MoviesItem, isFavorite: (MoviesItem) -> Boolean) {
+            val icon = if (isFavorite(movie)) {
+                R.drawable.baseline_favorite_24
+            } else {
+                R.drawable.baseline_favorite_border
+            }
+            binding.imageFavorite.setImageResource(icon)
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(
@@ -30,16 +66,10 @@ class MovieAdapter(private var movieList: List<MoviesItem?> , private val movieC
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val movie = movieList[position]
+        holder.bind(movieList[position]!!, onMovieClick, onFavoriteClick, isFavorite)
+    }
 
-        movie?.let {
-            holder.binding.titleTxt.text = it.title
-            holder.binding.root.setOnClickListener {
-                movie?.id?.let { it1 -> movieClickListener.onMovieClicted(movieId = it1) }
-            }
-            it.posterPath?.let { path ->
-                holder.binding.imagePoster.loadCircleImage(path)
-            }
-        }
+    fun updateMovies(newMovieList: List<MoviesItem?>) {
+        movieList = newMovieList
     }
 }

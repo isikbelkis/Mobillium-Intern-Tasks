@@ -5,5 +5,5 @@ import com.google.gson.annotations.SerializedName
 
 data class ActorsResponse(
     @SerializedName("cast")
-    val cast: List<Cast?>?,
+    val cast: List<Cast?>?
 )

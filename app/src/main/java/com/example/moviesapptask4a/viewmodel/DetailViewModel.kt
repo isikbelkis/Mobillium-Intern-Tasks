@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.moviesapptask4a.model.Cast
 import com.example.moviesapptask4a.model.MovieDetailResponse
 import com.example.moviesapptask4a.network.MovieClient
-import com.example.moviesapptask4a.util.Constans
+import com.example.moviesapptask4a.util.Constants
 import kotlinx.coroutines.launch
 
 class DetailViewModel : ViewModel() {
@@ -23,13 +23,13 @@ class DetailViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val detailResponse = MovieClient.movieService
-                    .getMovieDetail(movieId = movieId.toString(), token = Constans.BEARER_TOKEN)
+                    .getMovieDetail(movieId = movieId.toString())
 
                 if (detailResponse.isSuccessful) {
                     movieResponse.postValue(detailResponse.body())
                 }
                 val actorsResponse = MovieClient.movieService
-                    .getMovieActors(movieId = movieId.toString(), token = Constans.BEARER_TOKEN)
+                    .getMovieActors(movieId = movieId.toString())
 
                 if (actorsResponse.isSuccessful) {
                     actorsList.postValue(actorsResponse.body()?.cast)

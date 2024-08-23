@@ -16,15 +16,10 @@ class MovieAdapter(
     private val isFavorite: (MoviesItem) -> Boolean
 ) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
 
-    class ViewHolder(private val binding: MovieRecyclerviewBinding) :
+    inner class ViewHolder(private val binding: MovieRecyclerviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(
-            movie: MoviesItem,
-            onMovieClick: (MoviesItem) -> Unit,
-            onFavoriteClick: (MoviesItem) -> Unit,
-            isFavorite: (MoviesItem) -> Boolean
-        ) {
+        fun bind(movie: MoviesItem) {
             binding.titleTxt.text = movie.title
             movie.posterPath?.let { path ->
                 binding.imagePoster.loadCircleImage(path)
@@ -36,12 +31,13 @@ class MovieAdapter(
 
             binding.imageFavorite.setOnClickListener {
                 onFavoriteClick(movie)
-                toggleFavoriteIcon(movie, isFavorite)
+                toggleFavoriteIcon(movie,isFavorite)
             }
-            toggleFavoriteIcon(movie, isFavorite)
+
+            toggleFavoriteIcon(movie,isFavorite)
         }
 
-        private fun toggleFavoriteIcon(movie: MoviesItem, isFavorite: (MoviesItem) -> Boolean) {
+        private fun toggleFavoriteIcon(movie: MoviesItem , isFavorite: (MoviesItem) -> Boolean) {
             val icon = if (isFavorite(movie)) {
                 R.drawable.baseline_favorite_24
             } else {
@@ -52,13 +48,12 @@ class MovieAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(
-            MovieRecyclerviewBinding.inflate(
-                LayoutInflater.from(parent.context),
-                parent,
-                false
-            )
+        val binding = MovieRecyclerviewBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
         )
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
@@ -66,9 +61,10 @@ class MovieAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(movieList[position]!!, onMovieClick, onFavoriteClick, isFavorite)
+        movieList[position]?.let { movie ->
+            holder.bind(movie)
+        }
     }
-
     fun updateMovies(newMovieList: List<MoviesItem?>) {
         movieList = newMovieList
     }

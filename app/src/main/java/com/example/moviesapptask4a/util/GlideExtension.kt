@@ -12,7 +12,7 @@ fun ImageView.loadCircleImage(path: String) {
         .error(R.drawable.error)
         .centerCrop()
     Glide.with(this.context)
-        .load(Constans.BASE_IMAGE_URL+path)
+        .load(Constants.BASE_IMAGE_URL+path)
         .apply(requestOptions)
         .into(this)
 }
@@ -22,7 +22,7 @@ fun ImageView.loadImage(path: String) {
         .error(R.drawable.error)
         .circleCrop()
     Glide.with(this.context)
-        .load(Constans.BASE_IMAGE_URL+path)
+        .load(Constants.BASE_IMAGE_URL+path)
         .apply(requestOptions)
         .into(this)
 }

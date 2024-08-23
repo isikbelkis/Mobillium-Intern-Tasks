@@ -7,13 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isVisible
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesapptask4a.R
-import com.example.moviesapptask4a.viewmodel.SharedMovieViewModel
 import com.example.moviesapptask4a.adapter.MovieAdapter
 import com.example.moviesapptask4a.databinding.FragmentListBinding
 import com.example.moviesapptask4a.model.MoviesItem
@@ -23,7 +21,6 @@ class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
     private val viewModel by viewModels<ListViewModel>()
-    private val sharedViewModel by activityViewModels<SharedMovieViewModel>()
     private lateinit var bestOfMoviesAdapter: MovieAdapter
     private lateinit var topRatedMoviesAdapter: MovieAdapter
     private lateinit var upcomingMoviesAdapter: MovieAdapter
@@ -60,7 +57,7 @@ class ListFragment : Fragment() {
             val movieAdapter = MovieAdapter(
                 movieList,
                 onFavoriteClick = { movie ->
-                    sharedViewModel.toggleFavorite(movie)
+                    viewModel.toggleFavorite(movie)
                 },
                 onMovieClick = { movie ->
                     val action =
@@ -68,7 +65,7 @@ class ListFragment : Fragment() {
                     findNavController().navigate(action)
                 },
                 isFavorite = { movie ->
-                    sharedViewModel.isFavorite(movie)
+                    viewModel.isFavorite(movie.id!!).value ?: false
                 }
             )
             adapterSetter(movieAdapter)

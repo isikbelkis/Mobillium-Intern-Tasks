@@ -12,7 +12,7 @@
         android:id="@+id/textViewFavorite"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen40"
+        android:layout_marginTop="@dimen/dimen10"
         android:text="@string/favoriteText"
         android:textColor="@color/main_color"
         android:textSize="@dimen/dimen32sp"
@@ -26,7 +26,8 @@
         android:id="@+id/favoriteRecyclerView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen30"
+        android:layout_margin="@dimen/dimen32"
+        android:layout_marginTop="@dimen/dimen10"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFavorite" />

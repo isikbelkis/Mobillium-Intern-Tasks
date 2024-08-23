@@ -1,19 +1,23 @@
 package com.example.moviesapptask4a.network
 
-import com.example.moviesapptask4a.util.Constans
+import com.example.moviesapptask4a.TokenInterceptor
+import com.example.moviesapptask4a.util.Constants
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 object MovieClient {
 
-    private const val base_url=Constans.BASE_URL
+    val okHttpClient = OkHttpClient.Builder()
+        .addInterceptor(TokenInterceptor())
+        .build()
 
-    val movieService:MovieService by lazy {
-        Retrofit.Builder()
-            .baseUrl(base_url)
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-            .create(MovieService::class.java)
-    }
+    val retrofit = Retrofit.Builder()
+        .baseUrl(Constants.BASE_URL)
+        .client(okHttpClient)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+
+    val movieService = retrofit.create(MovieService::class.java)
 }
 

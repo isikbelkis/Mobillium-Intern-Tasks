@@ -5,60 +5,49 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.moviesapptask4a.adapter.MovieAdapter
+import androidx.recyclerview.widget.GridLayoutManager
+import com.example.moviesapptask4a.adapter.FavoriteMovieAdapter
 import com.example.moviesapptask4a.databinding.FragmentFavoriteBinding
-import com.example.moviesapptask4a.viewmodel.FavoriteViewModel
-import com.example.moviesapptask4a.viewmodel.SharedMovieViewModel
+import com.example.moviesapptask4a.viewmodel.FavoriteMovieViewModel
 
 class FavoriteFragment : Fragment() {
 
     private lateinit var binding: FragmentFavoriteBinding
-    private val sharedViewModel by activityViewModels<SharedMovieViewModel>()
-    private val favoriteViewModel by viewModels<FavoriteViewModel>()
-    private lateinit var favoriteMoviesAdapter: MovieAdapter
+    private val favoriteViewModel by viewModels<FavoriteMovieViewModel>()
+    private lateinit var favoriteMoviesAdapter: FavoriteMovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentFavoriteBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setupRecyclerView()
-        observe()
-    }
 
-    private fun setupRecyclerView() {
-        favoriteMoviesAdapter = MovieAdapter(
-            movieList = emptyList(),
-            onMovieClick = { movie ->
-                val action =
-                    FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(movieId = movie.id!!)
-                findNavController().navigate(action)
-            },
+        favoriteMoviesAdapter = FavoriteMovieAdapter(
+            favoriteMovieList = emptyList(),
+            isFavorite = { movie -> favoriteViewModel.isFavorite(movie) },
             onFavoriteClick = { movie ->
                 favoriteViewModel.toggleFavorite(movie)
+                favoriteMoviesAdapter.updateFavoriteList(favoriteViewModel.allFavoriteMovies.value ?: emptyList())
             },
-            isFavorite = { movie ->
-                sharedViewModel.isFavorite(movie)
+            onMovieClick = { movie ->
+                val action =
+                    FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(movie.id!!)
+                findNavController().navigate(action)
             }
         )
-        binding.favoriteRecyclerView.apply {
-            adapter = favoriteMoviesAdapter
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        }
-    }
 
-    private fun observe() {
-        sharedViewModel.favoriteMovies.observe(viewLifecycleOwner) { favoriteMovies ->
-            favoriteMoviesAdapter.updateMovies(favoriteMovies.toList())
+        binding.favoriteRecyclerView.layoutManager = GridLayoutManager(context, 2)
+        binding.favoriteRecyclerView.adapter = favoriteMoviesAdapter
+
+        favoriteViewModel.allFavoriteMovies.observe(viewLifecycleOwner) { listFavoriteMovie ->
+            favoriteMoviesAdapter.updateFavoriteList(listFavoriteMovie)
         }
     }
 }

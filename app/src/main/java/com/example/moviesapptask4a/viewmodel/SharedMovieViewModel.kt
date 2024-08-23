@@ -5,16 +5,16 @@ import com.example.moviesapptask4a.model.MoviesItem
 
 class SharedMovieViewModel : ViewModel() {
 
-    val favoriteMovies : MutableLiveData<MutableSet<MoviesItem>> = MutableLiveData()
+    val favoriteMovies: MutableLiveData<Set<MoviesItem>> = MutableLiveData(emptySet())
 
     fun toggleFavorite(movie: MoviesItem) {
-        val currentFavorites = favoriteMovies.value ?: mutableSetOf()
-        if (currentFavorites.contains(movie)) {
-            currentFavorites.remove(movie)
+        val currentFavorites = favoriteMovies.value ?: emptySet()
+        val updatedFavorites = if (currentFavorites.contains(movie)) {
+            currentFavorites - movie
         } else {
-            currentFavorites.add(movie)
+            currentFavorites + movie
         }
-        favoriteMovies.value = currentFavorites
+        favoriteMovies.value = updatedFavorites
     }
 
     fun isFavorite(movie: MoviesItem): Boolean {

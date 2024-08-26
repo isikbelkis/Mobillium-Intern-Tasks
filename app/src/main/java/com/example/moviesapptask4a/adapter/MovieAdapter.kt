@@ -8,7 +8,6 @@ import com.example.moviesapptask4a.databinding.MovieRecyclerviewBinding
 import com.example.moviesapptask4a.model.MoviesItem
 import com.example.moviesapptask4a.util.loadCircleImage
 
-
 class MovieAdapter(
     private var movieList: List<MoviesItem?>,
     private val onMovieClick: (MoviesItem) -> Unit,
@@ -31,13 +30,13 @@ class MovieAdapter(
 
             binding.imageFavorite.setOnClickListener {
                 onFavoriteClick(movie)
-                toggleFavoriteIcon(movie,isFavorite)
+                toggleFavoriteIcon(movie, isFavorite)
             }
 
-            toggleFavoriteIcon(movie,isFavorite)
+            toggleFavoriteIcon(movie, isFavorite)
         }
 
-        private fun toggleFavoriteIcon(movie: MoviesItem , isFavorite: (MoviesItem) -> Boolean) {
+        private fun toggleFavoriteIcon(movie: MoviesItem, isFavorite: (MoviesItem) -> Boolean) {
             val icon = if (isFavorite(movie)) {
                 R.drawable.baseline_favorite_24
             } else {
@@ -65,6 +64,7 @@ class MovieAdapter(
             holder.bind(movie)
         }
     }
+
     fun updateMovies(newMovieList: List<MoviesItem?>) {
         movieList = newMovieList
     }

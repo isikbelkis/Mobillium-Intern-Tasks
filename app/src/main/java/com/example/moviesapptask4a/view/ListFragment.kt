@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.view.isVisible
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,11 +17,13 @@ import com.example.moviesapptask4a.adapter.MovieAdapter
 import com.example.moviesapptask4a.databinding.FragmentListBinding
 import com.example.moviesapptask4a.model.MoviesItem
 import com.example.moviesapptask4a.viewmodel.ListViewModel
+import com.example.moviesapptask4a.viewmodel.SharedMovieViewModel
 
 class ListFragment : Fragment() {
 
     private lateinit var binding: FragmentListBinding
-    private val viewModel by viewModels<ListViewModel>()
+    private val sharedMovieViewModel: SharedMovieViewModel by activityViewModels()
+    private val viewModel: ListViewModel by viewModels()
     private lateinit var bestOfMoviesAdapter: MovieAdapter
     private lateinit var topRatedMoviesAdapter: MovieAdapter
     private lateinit var upcomingMoviesAdapter: MovieAdapter
@@ -57,16 +60,14 @@ class ListFragment : Fragment() {
             val movieAdapter = MovieAdapter(
                 movieList,
                 onFavoriteClick = { movie ->
-                    viewModel.toggleFavorite(movie)
+                    sharedMovieViewModel.toggleFavorite(movie)
                 },
                 onMovieClick = { movie ->
                     val action =
                         ListFragmentDirections.actionListFragmentToDetailFragment(movieId = movie.id!!)
                     findNavController().navigate(action)
                 },
-                isFavorite = { movie ->
-                    viewModel.isFavorite(movie.id!!).value ?: false
-                }
+                isFavorite = { movie -> sharedMovieViewModel.isFavorite(movie) }
             )
             adapterSetter(movieAdapter)
             recyclerView.adapter = movieAdapter
@@ -75,14 +76,15 @@ class ListFragment : Fragment() {
         }
     }
 
-
     private fun observe() {
         with(binding) {
+            viewModel.isLoading.observe(viewLifecycleOwner) { loading ->
+                progressBar.isVisible = loading
+            }
             viewModel.errorMessage.observe(viewLifecycleOwner) { error ->
                 textViewError.text = error
                 textViewError.isVisible = true
             }
-
             viewModel.popularMoviesList.observe(viewLifecycleOwner) { popularList ->
                 setupList(
                     popularList,

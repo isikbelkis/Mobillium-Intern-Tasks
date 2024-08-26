@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.moviesapptask4a.model.Cast
 import com.example.moviesapptask4a.model.MovieDetailResponse
 import com.example.moviesapptask4a.network.MovieClient
-import com.example.moviesapptask4a.util.Constants
 import kotlinx.coroutines.launch
 
 class DetailViewModel : ViewModel() {
@@ -15,7 +14,6 @@ class DetailViewModel : ViewModel() {
     val isLoading = MutableLiveData(false)
     val errorMessage: MutableLiveData<String?> = MutableLiveData()
     val actorsList: MutableLiveData<List<Cast?>?> = MutableLiveData()
-
 
     fun getMovieDetail(movieId: Int) {
         isLoading.value = true

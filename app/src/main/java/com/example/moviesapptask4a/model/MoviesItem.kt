@@ -14,5 +14,5 @@ data class MoviesItem(
     val title: String?,
     @SerializedName("vote_average")
     val voteAverage: Double?,
-    var isFavorite :Boolean,
+    var isFavorite: Boolean,
 )

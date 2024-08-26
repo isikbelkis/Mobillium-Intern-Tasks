@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.FavoriteFragment"
-    android:background="@drawable/list_background">
+    android:background="@drawable/list_background"
+    tools:context=".view.FavoriteFragment">
 
 
     <TextView
         android:id="@+id/textViewFavorite"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dimen10"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dimen6"
+        android:fontFamily="@font/bungeeshade_regular"
         android:text="@string/favoriteText"
-        android:textColor="@color/main_color"
+        android:textColor="@color/white"
         android:textSize="@dimen/dimen32sp"
-        android:background="@drawable/text_background"
-        android:fontFamily="@font/roboto_bold"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -25,9 +25,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favoriteRecyclerView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dimen32"
-        android:layout_marginTop="@dimen/dimen10"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/dimen32"
+        android:layout_marginEnd="@dimen/dimen32"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewFavorite" />

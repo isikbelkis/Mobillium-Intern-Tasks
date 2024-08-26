@@ -5,18 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.moviesapptask4a.adapter.FavoriteMovieAdapter
+import com.example.moviesapptask4a.adapter.MovieAdapter
 import com.example.moviesapptask4a.databinding.FragmentFavoriteBinding
-import com.example.moviesapptask4a.viewmodel.FavoriteMovieViewModel
+import com.example.moviesapptask4a.viewmodel.SharedMovieViewModel
 
 class FavoriteFragment : Fragment() {
 
     private lateinit var binding: FragmentFavoriteBinding
-    private val favoriteViewModel by viewModels<FavoriteMovieViewModel>()
-    private lateinit var favoriteMoviesAdapter: FavoriteMovieAdapter
+    private val sharedMovieViewModel: SharedMovieViewModel by activityViewModels()
+    private lateinit var favoriteMoviesAdapter: MovieAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,16 +29,14 @@ class FavoriteFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        favoriteMoviesAdapter = FavoriteMovieAdapter(
-            favoriteMovieList = emptyList(),
-            isFavorite = { movie -> favoriteViewModel.isFavorite(movie) },
+        favoriteMoviesAdapter = MovieAdapter(
+            movieList = emptyList(),
+            isFavorite = { movie -> sharedMovieViewModel.isFavorite(movie) },
             onFavoriteClick = { movie ->
-                favoriteViewModel.toggleFavorite(movie)
-                favoriteMoviesAdapter.updateFavoriteList(favoriteViewModel.allFavoriteMovies.value ?: emptyList())
+                sharedMovieViewModel.toggleFavorite(movie)
             },
             onMovieClick = { movie ->
-                val action =
-                    FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(movie.id!!)
+                val action = FavoriteFragmentDirections.actionFavoriteFragmentToDetailFragment(movie.id!!)
                 findNavController().navigate(action)
             }
         )
@@ -46,8 +44,8 @@ class FavoriteFragment : Fragment() {
         binding.favoriteRecyclerView.layoutManager = GridLayoutManager(context, 2)
         binding.favoriteRecyclerView.adapter = favoriteMoviesAdapter
 
-        favoriteViewModel.allFavoriteMovies.observe(viewLifecycleOwner) { listFavoriteMovie ->
-            favoriteMoviesAdapter.updateFavoriteList(listFavoriteMovie)
+        sharedMovieViewModel.favoriteMoviesLiveData.observe(viewLifecycleOwner){favoriteMovies->
+            favoriteMoviesAdapter.updateMovies(favoriteMovies.toList())
         }
     }
 }

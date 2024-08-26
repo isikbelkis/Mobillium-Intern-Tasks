@@ -19,7 +19,7 @@ interface MovieService {
     suspend fun getMoviesUpcomingList(): Response<MovieResponse>
 
     @GET("{movieId}")
-    suspend fun getMovieDetail(@Path("movieId") movieId:String) :Response<MovieDetailResponse>
+    suspend fun getMovieDetail(@Path("movieId") movieId: String): Response<MovieDetailResponse>
 
     @GET("{movieId}/credits")
     suspend fun getMovieActors(@Path("movieId") movieId: String): Response<ActorsResponse>

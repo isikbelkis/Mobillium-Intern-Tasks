@@ -1,6 +1,5 @@
 package com.example.moviesapptask4a.network
 
-import com.example.moviesapptask4a.TokenInterceptor
 import com.example.moviesapptask4a.util.Constants
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

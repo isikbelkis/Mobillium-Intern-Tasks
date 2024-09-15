@@ -22,5 +22,5 @@ SharedViewModel'ın scope'unu araştırdım ve diğer shared ViewModel scope'lar
 
 | List            | Detail                                                               |
 | ----------------- | ------------------------------------------------------------------ |
-| <img src="./img/Light-List.png" width="50%" height="50%">  | <img src="./img/Light-Detail.png" width="50%" height="50%"> |
+| <img src="./img/1.png" width="50%" height="50%">  | <img src="./img/2.png" width="50%" height="50%"> | <img src="./img/3.png" width="50%" height="50%"> |
 

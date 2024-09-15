@@ -1,18 +1,17 @@
 
 Merhaba,
 
-Bu proje, Android uygulama geliştirmede Activity ve Fragment'lar arasında navigasyon yapmayı ve veri paslamayı kapsamlı bir şekilde ele alır. Projede, ConstraintLayout kullanarak UI tasarımını yapacak, farklı navigasyon yöntemlerini uygulayacak ve veri taşımayı gerçekleştireceksiniz
-Navigasyon için farklı yollar uygulayacaksın.
+Bu proje, Android uygulama geliştirme üzerine odaklanarak, aktiviteler ve fragment'lar arasında navigasyon ile veri aktarma tekniklerini içeriyordu. ConstraintLayout kullanarak arayüz tasarımlarını gerçekleştirdik ve çeşitli navigasyon yöntemleri ile veri aktarma işlemlerini uyguladık.
 
 ## Konu 
 Liste ve Detay Ekranları Arasında Navigasyon ve Veri Paslama
 
 ## Hedef 
 Aşağıdaki UI tasarımları verilen ekranları ConstraintLayout ve ilgili View'ları kullanarak tasarladıktan sonra, 
-1. Activity - Activity Navigasyon: İlk olarak, iki ayrı activity oluşturulacak. Liste activity'sinde, kullanıcı bir liste öğesine tıkladığında, detay activity'sine geçiş yapılacak ve tıklanan öğeye ait tüm veriler detay activity'sine aktarılacak ve ilgili alanlarda gösterilecektir.
-2. Fragment - Fragment Navigasyon: Daha sonra, aynı işlevselliği sağlayan iki fragment içeren bir activity oluşturulacak. Liste ve detay fragment'ları arasında veri paslanacak ve navigasyon yapılacaktır.
-3. Navigation Component Kullanımı: Projeye Navigation Component eklenerek, iki fragment arasında navigasyon ve veri paslama yapılacaktır. SafeArgs kullanılarak veri güvenliği sağlanacak ve navigasyon işlemleri kolaylaştırılacaktır.
-4.Fragment Result API Kullanımı: Detay ekranında bulunan refresh ikonuna tıklandığında, rastgele bir sıcaklık değeri seçilecek ve bu değer detay fragment'ında güncellenecek. Verileri güncelleme butonuna basıldığında ise, Fragment Result API kullanılarak liste fragment'ındaki değer güncellenecektir. Geri döndüğünde, seçilen sıcaklık değeri liste öğesindeki ilgili alana yansıtılacaktır.
+1. Activity - Activity Navigasyon: İlk olarak, iki ayrı activity oluşturduk. Liste activity'sinde bir öğeye tıklandığında, kullanıcıyı detay activity'sine yönlendirdik. Liste öğesindeki tüm verileri başarıyla detay activity'sine aktarıp, ilgili alanlarda gösterdik.
+2. Fragment - Fragment Navigasyon: Daha sonra bir activity altında iki fragment (liste ve detay) oluşturduk. Bu fragment'lar arasında veri aktarımı yaparak, navigasyonu tamamladık.
+3. Navigation Component Kullanımı:  Fragment'lar arasında veri aktarımını ve navigasyonu yönetmek için Navigation Component'i entegre ettik. SafeArgs kullanarak verilerin güvenli bir şekilde taşınmasını sağladık ve navigasyonu kolaylaştırdık.
+4.Fragment Result API Kullanımı: Detay ekranında bulunan yenileme simgesine tıklandığında rastgele bir sıcaklık değeri seçilip detay fragment'ine set edildi. Veri güncelleme butonu ile Fragment Result API kullanarak liste fragment'indeki sıcaklık değeri başarıyla güncellendi. Geri döndüğümüzde, seçilen sıcaklık değeri ilgili liste öğesine yansıtıldı.
 
 ## Kullanılan Teknolojiler 
 - ConstraintLayout: UI bileşenlerini düzenlemek ve yerleştirmek için kullanıldı.

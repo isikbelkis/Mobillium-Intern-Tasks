@@ -19,8 +19,8 @@ SharedViewModel'ın scope'unu araştırdım ve diğer shared ViewModel scope'lar
 5-SharedViewModel: Activity düzeyinde veri paylaşımı sağlamak için kullanıldı.
 
 ## UI Tasarım
-
-| List            | Detail                                                               |
-| ----------------- | ------------------------------------------------------------------ |
+ 
+| Giriş            | Number Guess Game            | Counter            |
+| ----------------- | ------------------------------------------------------------------ |------------------------------------------------------------------ |
 | <img src="./img/1.png" width="50%" height="50%">  | <img src="./img/2.png" width="50%" height="50%"> | <img src="./img/3.png" width="50%" height="50%"> |
 

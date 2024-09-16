@@ -23,5 +23,5 @@ The Movie Database API
 
 | List            | Detail                                                     | Favorites                |
 | ----------------- | ---------------------------------------------------------|-------------------------|
-| <img src="./img/Screenshot_1726480457.png" width="50%" height="50%">  | <img src="./img/Screenshot_1726480457.png" width="50%" height="50%"> | <img src="./img/Screenshot_1726480486.png" width="50%" height="50%">
+| <img src="./img/Screenshot_1726480457.png" width="50%" height="50%">  | <img src="./img/Screenshot_1726480486.png" width="50%" height="50%"> | <img src="./img/Screenshot_1726480486.png" width="50%" height="50%">
 

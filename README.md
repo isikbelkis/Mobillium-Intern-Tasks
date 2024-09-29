@@ -1,25 +1,29 @@
-### Task-4: İnternetten Veri Çekme ve Manipülasyon
+### Task-4: Data Fetching and Manipulation from the Internet
+In this task, I learned how to fetch data from the internet and display it in the UI by parsing the retrieved data. I enabled the display of data obtained from the chosen API in a list format and facilitated navigation to a detail page.
 
-Bu görevde, internetten veri çekmeyi ve bu verileri parse ederek UI'da gösterme sürecini öğrendim. 
-Seçtiğim API'dan alınan verileri liste halinde ekranda göstermeyi ve detay sayfasına gitmeyi sağladım.
-
-## Kullanılan API:
+## Used API:
 The Movie Database API
 
-## Yapılanlar
-1-Retrofit ile Network İsteği Yapma: Retrofit kullanarak API'ya istek gönderdim ve gelen verileri aldım. API'dan çekilen bu verileri, uygulamanın UI katmanında gösterilmesi için hazırladım.
-2-GSON ile Verileri Parse Etme: API'dan gelen JSON verilerini, GSON kullanarak model sınıflarına parse ettim ve veriyi uygulama içinde işlenebilir hale getirdim.
-3-Liste Görüntüleme: Gelen verileri RecyclerView ile liste halinde ekranda gösterdim. UI'daki performansı artırmak için ViewHolder ve Adapter sınıflarını kullandım.
-4-Detay Sayfası: Listeden bir öğeye tıkladığımda, seçilen öğeye ait detayları göstermek üzere bir detay sayfasına yönlendirme gerçekleştirdim. Fragmentlar arası veri geçişini Jetpack Navigation ile sağladım.
+## Actions Taken
+1-Making Network Requests with Retrofit: I sent requests to the API using Retrofit and received the incoming data. I prepared this data for display in the application's UI layer.
 
-## Kullanılan Teknolojiler
-1-Retrofit: Network istekleri için kullanıldı.
-2-GSON: JSON verilerini parse etmek için kullanıldı.
-3-Glide: API'dan çekilen görselleri yüklemek için kullanıldı.
-4-LiveData: Veri akışını yönetmek ve UI state'ini güncellemek için kullanıldı.
-5-Jetpack Navigation: Fragmentlar arası geçiş ve veri iletimi için kullanıldı.
+2-Parsing Data with GSON: I parsed the JSON data received from the API into model classes using GSON, making the data processable within the application.
+Displaying a List: I displayed the retrieved data in a list format on the screen using RecyclerView. To enhance UI performance, I utilized ViewHolder and Adapter classes.
 
-## UI Tasarım
+3-Detail Page: When an item from the list was clicked, I redirected the user to a detail page to show the details of the selected item. Data passing between fragments was managed using Jetpack Navigation.
+
+## Technologies Used
+-Retrofit: Used for network requests.
+
+-GSON: Used to parse JSON data.
+
+-Glide: Used for loading images retrieved from the API.
+
+-LiveData: Used to manage data flow and update the UI state.
+
+-Jetpack Navigation: Used for transitioning between fragments and data passing.
+
+## UI Design
 
 | List            | Detail                                                     | Favorites                |
 | ----------------- | ---------------------------------------------------------|-------------------------|

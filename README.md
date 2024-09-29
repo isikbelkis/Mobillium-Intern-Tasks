@@ -1,24 +1,27 @@
-Merhaba,
+Hello,
 
-Task-3 kapsamında Android Jetpack Architecture komponentlerinden ViewModel ve LiveData'yı öğrendim. İşte bu görevde yaptıklarım:
+In Task-3, I learned about Android Jetpack Architecture components, ViewModel, and LiveData. Here's what I did in this task:
 
-1-ViewModel, Fragment ve Lifecycle Konseptleri: İlk olarak ViewModel, Fragment ve Activity lifecycle'larını öğrendim. ViewModel'ın Fragment ve Activity'lerle nasıl entegre olduğunu ve UI controller (Activity, Fragment) ile UI datasını yönetme sorumluluğunu anladım. 
-Ayrıca, konfigürasyon değişikliklerinde (örneğin, cihazın döndürülmesi) verilerin nasıl korunacağını inceledim.
-2-Yeni Fragment ve ViewModel Oluşturma: Yeni bir fragment oluşturdum ve buna ait bir ViewModel oluşturup bağladım. Fragment'ta bir sayaç değerini tutan bir TextView ve bir buton ekledim. Başlangıçta sayaç değeri sıfırdı ve butona her tıkladığımda sayacı artıracak şekilde ayarladım. 
-Fragment içerisinde hem UI controller'da hem de ViewModel'da sayaç değerini tuttum. Cihaz döndürüldüğünde ViewModel'da tutulan değerin korunduğunu gözlemledim.
-3-Sayı Tahmin Oyunu: Daha sonra bir sayı tahmin oyunu geliştirdim. Bu oyunda ViewModel oluştuğunda rastgele bir sayı ve bu sayıya karşılık gelen bir karakter üretildi. Kullanıcı tahmin ettiği sayıyı seçip "Guess" butonuna bastığında, tahmin edilen sayıyla rastgele üretilen sayıyı karşılaştırdım. 
-Doğruysa "Kazandın", yanlışsa "Tekrar dene" mesajını gösterdim. Aynı zamanda UI state'in korunup korunmadığını cihazı döndürerek test ettim.
-4-Detay Fragment ve SharedViewModel: Bir de gizli sayıyı gösterecek bir Detay Fragment oluşturup, bu fragment'a shared ViewModel ile veri aktardım. Gizli sayıya tıklandığında kullanıcıyı Detay Fragment'a yönlendirdim ve veriyi SharedViewModel kullanarak iki fragment arasında paylaştım. 
-SharedViewModel'ın scope'unu araştırdım ve diğer shared ViewModel scope'ları ile karşılaştırdım.
+1-ViewModel, Fragment, and Lifecycle Concepts: First, I learned about ViewModel, Fragment, and Activity lifecycles. I understood how ViewModel integrates with Fragments and Activities, and its responsibility for managing UI data alongside UI controllers (Activity, Fragment). I also explored how to retain data during configuration changes (e.g., device rotation).
 
-## Kullanılan Teknolojiler:
-1-ViewModel: UI state'ini korumak ve fragmentlar arası veri paylaşımı sağlamak için kullanıldı.
-2-LiveData & MutableLiveData: Verileri gözlemlenebilir kılmak ve lifecycle-aware bir yapı oluşturmak için kullanıldı.
-3-Fragment: UI yönetimi ve fragment'lar arası geçişler için kullanıldı.
-4-Navigation Component: Fragment'lar arasında veri aktarımı ve yönlendirme için kullanıldı.
-5-SharedViewModel: Activity düzeyinde veri paylaşımı sağlamak için kullanıldı.
+2-Creating a New Fragment and ViewModel: I created a new fragment and associated ViewModel. I added a TextView that holds a counter value and a button to the fragment. Initially, the counter value was zero, and I set it to increment every time the button was clicked. I observed that the value stored in the ViewModel was retained even when the device was rotated.
 
-## UI Tasarım
+3-Number Guessing Game: Then, I developed a number guessing game. In this game, a random number and a corresponding character were generated when the ViewModel was created. The user selected a number they guessed and clicked the "Guess" button to compare the guessed number with the randomly generated number. If correct, "You won" was displayed; otherwise, "Try again" was shown. I also tested whether the UI state was preserved by rotating the device.
+
+4-Detail Fragment and SharedViewModel: I also created a Detail Fragment to display the hidden number, and transferred data to this fragment using a shared ViewModel. When the hidden number was clicked, I directed the user to the Detail Fragment and shared data between the two fragments using SharedViewModel. I researched the scope of SharedViewModel and compared it with other shared ViewModel scopes.
+
+## Technologies Used:
+1-ViewModel: Used to retain UI state and enable data sharing between fragments.
+
+2-LiveData & MutableLiveData: Used to make data observable and create a lifecycle-aware structure.
+
+3-Fragment: Used for UI management and fragment transitions.
+
+4-Navigation Component: Used for data transfer and navigation between fragments.
+
+5-SharedViewModel: Used to facilitate data sharing at the activity level.
+
+## UI Design
  
 | Giriş            | Number Guess Game            | Counter            |
 | ----------------- | ------------------------------------------------------------------ |------------------------------------------------------------------ |

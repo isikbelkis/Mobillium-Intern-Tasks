@@ -1,13 +1,12 @@
-Merhaba,
+Hello,
 
-Bu proje, Android uygulama geliştirme sürecinde ConstraintLayout kullanarak UI tasarımını nasıl yapabileceğinizi gösterir. 
-Tasarım aşamasında, Light ve Dark mod seçenekleriyle kullanıcı arayüzlerini oluşturduk.
+This project demonstrates how to design a UI using ConstraintLayout during the Android application development process. During the design phase, we created user interfaces with both Light and Dark mode options.
 
-## Konu 
-ConstraintLayout ile UI tasarlama
+## Topic 
+Designing UI with ConstraintLayout
 
 
-## UI Tasarım
+## UI Design
 
 | Light Mode             | Dark Mode                                                                |
 | ----------------- | ------------------------------------------------------------------ |

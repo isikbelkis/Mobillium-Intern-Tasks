@@ -1,23 +1,25 @@
 
-Merhaba,
+Hello,
 
-Bu proje, Android uygulama geliştirme üzerine odaklanarak, aktiviteler ve fragment'lar arasında navigasyon ile veri aktarma tekniklerini içeriyordu. ConstraintLayout kullanarak arayüz tasarımlarını gerçekleştirdik ve çeşitli navigasyon yöntemleri ile veri aktarma işlemlerini uyguladık.
+This project focused on Android application development, including techniques for navigation and data transfer between activities and fragments. 
+We designed user interfaces using ConstraintLayout and implemented data transfer with various navigation methods.
 
-## Konu 
-Liste ve Detay Ekranları Arasında Navigasyon ve Veri Paslama
+## Topic
+Navigation and Data Passing Between List and Detail Screens
 
-## Hedef 
-Aşağıdaki UI tasarımları verilen ekranları ConstraintLayout ve ilgili View'ları kullanarak tasarladıktan sonra, 
-1. Activity - Activity Navigasyon: İlk olarak, iki ayrı activity oluşturduk. Liste activity'sinde bir öğeye tıklandığında, kullanıcıyı detay activity'sine yönlendirdik. Liste öğesindeki tüm verileri başarıyla detay activity'sine aktarıp, ilgili alanlarda gösterdik.
-2. Fragment - Fragment Navigasyon: Daha sonra bir activity altında iki fragment (liste ve detay) oluşturduk. Bu fragment'lar arasında veri aktarımı yaparak, navigasyonu tamamladık.
-3. Navigation Component Kullanımı:  Fragment'lar arasında veri aktarımını ve navigasyonu yönetmek için Navigation Component'i entegre ettik. SafeArgs kullanarak verilerin güvenli bir şekilde taşınmasını sağladık ve navigasyonu kolaylaştırdık.
-4.Fragment Result API Kullanımı: Detay ekranında bulunan yenileme simgesine tıklandığında rastgele bir sıcaklık değeri seçilip detay fragment'ine set edildi. Veri güncelleme butonu ile Fragment Result API kullanarak liste fragment'indeki sıcaklık değeri başarıyla güncellendi. Geri döndüğümüzde, seçilen sıcaklık değeri ilgili liste öğesine yansıtıldı.
+## Objective
+After designing the given screens using ConstraintLayout and related views,
+1-Activity - Activity Navigation: First, we created two separate activities. When an item in the list activity is clicked, the user is directed to the detail activity. We successfully transferred all the data from the list item to the detail activity and displayed it in the corresponding fields.
+2-Fragment - Fragment Navigation: Next, we created two fragments (list and detail) under one activity. We completed the navigation by transferring data between these fragments.
+3-Using Navigation Component: We integrated the Navigation Component to manage data transfer and navigation between fragments. We used SafeArgs to ensure secure data passing and facilitate navigation.
+4-Fragment Result API Usage: When the refresh icon on the detail screen was clicked, a random temperature value was set in the detail fragment. Using the data update button, the Fragment Result API was employed to successfully update the temperature value in the list fragment. Upon returning, the selected temperature value was reflected in the corresponding list item.
 
-## Kullanılan Teknolojiler 
-- ConstraintLayout: UI bileşenlerini düzenlemek ve yerleştirmek için kullanıldı.
-- Navigation Component: Fragment'lar arasında navigasyon ve veri paslama işlemlerini kolaylaştırmak için kullanıldı.
-- Fragment Result API: Fragment'lar arasında veri taşımak ve güncellemeleri sağlamak için kullanıldı.
-## UI Tasarım
+## Technologies Used
+1-ConstraintLayout: Used to arrange and position UI components.
+2-Navigation Component: Used to facilitate navigation and data transfer between fragments.
+3-Fragment Result API: Used to transfer data and handle updates between fragments.
+
+## UI Design
 
 | List            | Detail                                                               |
 | ----------------- | ------------------------------------------------------------------ |
